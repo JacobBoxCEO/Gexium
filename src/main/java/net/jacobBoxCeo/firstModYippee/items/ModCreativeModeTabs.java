@@ -18,7 +18,6 @@ public class ModCreativeModeTabs
                     .title(Component.translatable("creativetab.silly_mod_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.GEXITE.get());
-                        output.accept(ModItems.GEXITE_SCRAP.get());
                         output.accept(ModBlocks.GEXITE_BLOCK.get());
                     })
                     .build());
