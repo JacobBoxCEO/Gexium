@@ -12,7 +12,7 @@ public class ModItems
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, FirstModYippee.MODID);
 
-    public static final RegistryObject<Item> GEXITE = ITEMS.register("gexite",
+    public static final RegistryObject<Item> GEXITE = ITEMS.register("gexite_ingot",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GEXITE_SCRAP = ITEMS.register("gexite_scrap",
             () -> new Item(new Item.Properties()));

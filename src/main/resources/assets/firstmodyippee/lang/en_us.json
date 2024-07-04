@@ -1,6 +1,8 @@
 {
-  "item.firstmodyippee.gexite": "Gexite",
+  "item.firstmodyippee.gexite_ingot": "Gexite",
   "item.firstmodyippee.gexite_scrap": "Gexite Scrap",
+
+  "block.firstmodyippee.gexite_block": "Block of Gexite",
 
   "creativetab.silly_mod_tab": "Silly Mod Tab"
 }

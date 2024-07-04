@@ -1,6 +1,7 @@
 package net.jacobBoxCeo.firstModYippee;
 
 import com.mojang.logging.LogUtils;
+import net.jacobBoxCeo.firstModYippee.items.ModBlocks;
 import net.jacobBoxCeo.firstModYippee.items.ModCreativeModeTabs;
 import net.jacobBoxCeo.firstModYippee.items.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
@@ -33,6 +34,8 @@ public class FirstModYippee
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
