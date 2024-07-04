@@ -20,6 +20,7 @@ public class ModCreativeModeTabs
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.GEXITE.get());
                         output.accept(ModItems.GEXITE_SCRAP.get());
+                        output.accept(ModBlocks.GEXITE_BLOCK.get());
                     })
                     .build());
     public static void register(IEventBus eventBus)
