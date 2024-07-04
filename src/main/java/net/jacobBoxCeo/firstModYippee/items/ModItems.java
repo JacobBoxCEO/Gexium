@@ -14,8 +14,6 @@ public class ModItems
 
     public static final RegistryObject<Item> GEXITE = ITEMS.register("gexite_ingot",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GEXITE_SCRAP = ITEMS.register("gexite_scrap",
-            () -> new Item(new Item.Properties()));
 
     public static void  register(IEventBus eventBus)
     {
