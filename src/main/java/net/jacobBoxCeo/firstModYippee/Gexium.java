@@ -4,8 +4,6 @@ import com.mojang.logging.LogUtils;
 import net.jacobBoxCeo.firstModYippee.items.ModBlocks;
 import net.jacobBoxCeo.firstModYippee.items.ModCreativeModeTabs;
 import net.jacobBoxCeo.firstModYippee.items.ModItems;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -19,15 +17,15 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(FirstModYippee.MODID)
-public class FirstModYippee
+@Mod(Gexium.MODID)
+public class Gexium
 {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "firstmodyippee";
+    public static final String MODID = "gexium";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public FirstModYippee()
+    public Gexium()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 

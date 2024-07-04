@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "firstmodyippee:block/gexite_block"
+    "all": "gexium:block/gexite_block"
   }
 }

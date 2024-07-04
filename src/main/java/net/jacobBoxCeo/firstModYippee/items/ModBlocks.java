@@ -1,6 +1,6 @@
 package net.jacobBoxCeo.firstModYippee.items;
 
-import net.jacobBoxCeo.firstModYippee.FirstModYippee;
+import net.jacobBoxCeo.firstModYippee.Gexium;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 public class ModBlocks
 {
     public static final DeferredRegister<Block> BLOCKS =
-            DeferredRegister.create(ForgeRegistries.BLOCKS, FirstModYippee.MODID);
+            DeferredRegister.create(ForgeRegistries.BLOCKS, Gexium.MODID);
 
     public static final RegistryObject<Block> GEXITE_BLOCK = registerBlock("gexite_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));

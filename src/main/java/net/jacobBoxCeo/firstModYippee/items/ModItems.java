@@ -1,6 +1,6 @@
 package net.jacobBoxCeo.firstModYippee.items;
 
-import net.jacobBoxCeo.firstModYippee.FirstModYippee;
+import net.jacobBoxCeo.firstModYippee.Gexium;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems
 {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, FirstModYippee.MODID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, Gexium.MODID);
 
     public static final RegistryObject<Item> GEXITE = ITEMS.register("gexite_ingot",
             () -> new Item(new Item.Properties()));

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "firstmodyippee:item/gexite_ingot"
+    "layer0": "gexium:item/gexite_scrap"
   }
 }

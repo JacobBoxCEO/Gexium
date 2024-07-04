@@ -1,4 +1,4 @@
-# First Mod Yippee
+# gexium
 my first minecraft mod
 
 yippee
