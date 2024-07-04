@@ -1,0 +1,7 @@
+{
+  "variants" : {
+    "" : {
+      "model": "gexium:block/gexium_block"
+    }
+  }
+}

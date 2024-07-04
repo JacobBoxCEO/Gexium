@@ -1,8 +1,9 @@
 {
   "item.gexium.gexite_ingot": "Gexite Ingot",
-  "item.gexium.gexite_scrap": "Gexite Scrap",
+  "item.gexium.gexium_ingot": "Gexium Ingot",
 
   "block.gexium.gexite_block": "Block of Gexite",
+  "block.gexium.gexium_block": "Block of Gexium",
 
   "creativetab.silly_mod_tab": "Gexium"
 }

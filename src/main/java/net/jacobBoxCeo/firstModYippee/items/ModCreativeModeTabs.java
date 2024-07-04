@@ -19,6 +19,8 @@ public class ModCreativeModeTabs
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.GEXITE.get());
                         output.accept(ModBlocks.GEXITE_BLOCK.get());
+                        output.accept(ModItems.GEXIUM.get());
+                        output.accept(ModBlocks.GEXIUM_BLOCK.get());
                     })
                     .build());
     public static void register(IEventBus eventBus)
