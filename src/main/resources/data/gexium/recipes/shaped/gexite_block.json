@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "patterm": [
+    "ggg",
+    "ggg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "gexium:gexite_ingot"
+    }
+  },
+  "result": "gexium:gexite_block"
+}
