@@ -1,6 +1,8 @@
-package net.jacobBoxCeo.firstModYippee.items;
+package net.jacobBoxCeo.firstModYippee.creative_mode_tabs;
 
 import net.jacobBoxCeo.firstModYippee.Gexium;
+import net.jacobBoxCeo.firstModYippee.blocks.ModBlocks;
+import net.jacobBoxCeo.firstModYippee.items.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -21,6 +23,7 @@ public class ModCreativeModeTabs
                         output.accept(ModBlocks.GEXITE_BLOCK.get());
                         output.accept(ModItems.GEXIUM.get());
                         output.accept(ModBlocks.GEXIUM_BLOCK.get());
+                        output.accept(ModItems.SILLIUM.get());
                     })
                     .build());
     public static void register(IEventBus eventBus)
