@@ -1,8 +1,8 @@
 package net.jacobBoxCeo.firstModYippee;
 
 import com.mojang.logging.LogUtils;
-import net.jacobBoxCeo.firstModYippee.items.ModBlocks;
-import net.jacobBoxCeo.firstModYippee.items.ModCreativeModeTabs;
+import net.jacobBoxCeo.firstModYippee.blocks.ModBlocks;
+import net.jacobBoxCeo.firstModYippee.creative_mode_tabs.ModCreativeModeTabs;
 import net.jacobBoxCeo.firstModYippee.items.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;

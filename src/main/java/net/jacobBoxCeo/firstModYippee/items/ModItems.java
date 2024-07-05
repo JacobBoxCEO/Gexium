@@ -13,8 +13,10 @@ public class ModItems
             DeferredRegister.create(ForgeRegistries.ITEMS, Gexium.MODID);
 
     public static final RegistryObject<Item> GEXITE = ITEMS.register("gexite_ingot",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXIUM = ITEMS.register("gexium_ingot",
+            () -> new Item(new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> SILLIUM = ITEMS.register("sillium_crystal",
             () -> new Item(new Item.Properties()));
 
     public static void  register(IEventBus eventBus)
