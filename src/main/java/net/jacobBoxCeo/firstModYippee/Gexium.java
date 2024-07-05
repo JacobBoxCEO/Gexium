@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.jacobBoxCeo.firstModYippee.blocks.ModBlocks;
 import net.jacobBoxCeo.firstModYippee.creative_mode_tabs.ModCreativeModeTabs;
 import net.jacobBoxCeo.firstModYippee.items.ModItems;
+import net.jacobBoxCeo.firstModYippee.sounds.ModSounds;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -34,6 +35,8 @@ public class Gexium
         ModItems.register(modEventBus);
 
         ModBlocks.register(modEventBus);
+
+        ModSounds.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

@@ -1,0 +1,7 @@
+{
+  "variants" : {
+    "" : {
+      "model": "gexium:block/evil_skeleton_block"
+    }
+  }
+}

@@ -23,6 +23,8 @@ public class ModBlocks
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
     public static final RegistryObject<Block> GEXIUM_BLOCK = registerBlock("gexium_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
+    public static final RegistryObject<Block> BAD_TO_THE_BLOCK = registerBlock("evil_skeleton_block",
+            () -> new BadToTheBoneBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block)
     {

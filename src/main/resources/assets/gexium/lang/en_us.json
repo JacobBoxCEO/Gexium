@@ -4,6 +4,8 @@
 
   "block.gexium.gexite_block": "Block of Gexite",
   "block.gexium.gexium_block": "Block of Gexium",
+  "block.gexium.evil_skeleton_block": "Block of Evil Skeleton",
 
-  "creativetab.silly_mod_tab": "Gexium"
+  "creativetab.silly_mod_tab": "Gexium",
+  "sounds.gexium.bad_to_the_bone": "BAD TO THE BONE"
 }

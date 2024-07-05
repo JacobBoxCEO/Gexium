@@ -1,7 +1,9 @@
 package net.jacobBoxCeo.firstModYippee.blocks;
 
+import net.jacobBoxCeo.firstModYippee.sounds.ModSounds;
 import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -23,7 +25,7 @@ public class BadToTheBoneBlock extends Block
     public InteractionResult use(
             BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit)
     {
-        pLevel.playSound(pPlayer,pPos, SoundEvents.GENERIC_EXPLODE, SoundSource.BLOCKS);
+        pLevel.playSound(pPlayer,pPos, ModSounds.BAD_TO_THE_BONE.get(), SoundSource.BLOCKS);
         return InteractionResult.SUCCESS;
     }
 }

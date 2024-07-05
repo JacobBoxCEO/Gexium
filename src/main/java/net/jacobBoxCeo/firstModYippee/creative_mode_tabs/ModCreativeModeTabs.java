@@ -24,6 +24,7 @@ public class ModCreativeModeTabs
                         output.accept(ModItems.GEXIUM.get());
                         output.accept(ModBlocks.GEXIUM_BLOCK.get());
                         output.accept(ModItems.SILLIUM.get());
+                        output.accept(ModBlocks.BAD_TO_THE_BLOCK.get());
                     })
                     .build());
     public static void register(IEventBus eventBus)
