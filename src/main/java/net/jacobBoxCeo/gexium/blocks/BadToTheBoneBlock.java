@@ -1,10 +1,7 @@
-package net.jacobBoxCeo.firstModYippee.blocks;
+package net.jacobBoxCeo.gexium.blocks;
 
-import net.jacobBoxCeo.firstModYippee.sounds.ModSounds;
-import net.minecraft.client.resources.sounds.Sound;
+import net.jacobBoxCeo.gexium.sounds.ModSounds;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

@@ -1,8 +1,8 @@
-package net.jacobBoxCeo.firstModYippee.creative_mode_tabs;
+package net.jacobBoxCeo.gexium.creative_mode_tabs;
 
-import net.jacobBoxCeo.firstModYippee.Gexium;
-import net.jacobBoxCeo.firstModYippee.blocks.ModBlocks;
-import net.jacobBoxCeo.firstModYippee.items.ModItems;
+import net.jacobBoxCeo.gexium.Gexium;
+import net.jacobBoxCeo.gexium.blocks.ModBlocks;
+import net.jacobBoxCeo.gexium.items.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

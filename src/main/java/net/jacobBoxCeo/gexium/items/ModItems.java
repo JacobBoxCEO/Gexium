@@ -1,6 +1,6 @@
-package net.jacobBoxCeo.firstModYippee.items;
+package net.jacobBoxCeo.gexium.items;
 
-import net.jacobBoxCeo.firstModYippee.Gexium;
+import net.jacobBoxCeo.gexium.Gexium;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

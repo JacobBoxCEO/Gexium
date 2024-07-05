@@ -1,7 +1,7 @@
-package net.jacobBoxCeo.firstModYippee.blocks;
+package net.jacobBoxCeo.gexium.blocks;
 
-import net.jacobBoxCeo.firstModYippee.Gexium;
-import net.jacobBoxCeo.firstModYippee.items.ModItems;
+import net.jacobBoxCeo.gexium.Gexium;
+import net.jacobBoxCeo.gexium.items.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
