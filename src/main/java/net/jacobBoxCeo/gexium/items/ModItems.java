@@ -17,15 +17,25 @@ public class ModItems
     public static final RegistryObject<Item> GEXIUM = ITEMS.register("gexium_ingot",
             () -> new Item(new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXITE_SWORD = ITEMS.register("gexite_sword",
-            () -> new SwordItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+            () -> new SwordItem(ModToolTiers.GEXITE, 0, 0, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXITE_PICKAXE = ITEMS.register("gexite_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+            () -> new PickaxeItem(ModToolTiers.GEXITE, 0, 0, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXITE_AXE = ITEMS.register("gexite_axe",
-            () -> new AxeItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+            () -> new AxeItem(ModToolTiers.GEXITE, 0, 0, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXITE_SHOVEL = ITEMS.register("gexite_shovel",
-            () -> new ShovelItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+            () -> new ShovelItem(ModToolTiers.GEXITE, 0, 0, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXITE_HOE = ITEMS.register("gexite_hoe",
-            () -> new HoeItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+            () -> new HoeItem(ModToolTiers.GEXITE, 0, 0, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXIUM_SWORD = ITEMS.register("gexium_sword",
+            () -> new SwordItem(ModToolTiers.GEXIUM, 0, 0, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXIUM_PICKAXE = ITEMS.register("gexium_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.GEXIUM, 0, 0, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXIUM_AXE = ITEMS.register("gexium_axe",
+            () -> new AxeItem(ModToolTiers.GEXIUM, 0, 0, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXIUM_SHOVEL = ITEMS.register("gexium_shovel",
+            () -> new ShovelItem(ModToolTiers.GEXIUM, 0, 0, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXIUM_HOE = ITEMS.register("gexium_hoe",
+            () -> new HoeItem(ModToolTiers.GEXIUM, 0, 0, new Item.Properties().fireResistant()));
 
     public static void  register(IEventBus eventBus)
     {
