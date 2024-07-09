@@ -1,10 +1,12 @@
 package net.jacobBoxCeo.gexium.datagen;
 
 import net.jacobBoxCeo.gexium.Gexium;
+import net.jacobBoxCeo.gexium.blocks.ModBlocks;
 import net.jacobBoxCeo.gexium.items.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -20,8 +22,27 @@ public class ModItemModelGen extends ItemModelProvider
     @Override
     protected void registerModels()
     {
-        simpleItem(ModItems.GEXITE);
-        simpleItem(ModItems.GEXIUM);
+        for(RegistryObject<Item> item : ModItems.ITEMS.getEntries())
+        {
+            if (!checkIsBlock(item))
+            {
+                simpleItem(item);
+            }
+        }
+    }
+
+    private static boolean checkIsBlock(RegistryObject<Item> item)
+    {
+        boolean isBlock = false;
+        for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries())
+        {
+            if (item.equals(block))
+            {
+                isBlock = true;
+                break;
+            }
+        }
+        return isBlock;
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item)
