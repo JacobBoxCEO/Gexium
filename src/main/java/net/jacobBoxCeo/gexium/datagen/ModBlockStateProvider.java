@@ -8,9 +8,9 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModBlockStateGen extends BlockStateProvider
+public class ModBlockStateProvider extends BlockStateProvider
 {
-    public ModBlockStateGen(PackOutput output, ExistingFileHelper exFileHelper)
+    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper)
     {
         super(output, Gexium.MODID, exFileHelper);
     }

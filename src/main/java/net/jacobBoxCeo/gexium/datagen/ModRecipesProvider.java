@@ -11,10 +11,10 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Consumer;
 
-public class ModRecipesGen extends RecipeProvider implements IConditionBuilder
+public class ModRecipesProvider extends RecipeProvider implements IConditionBuilder
 {
 
-    public ModRecipesGen(PackOutput pOutput)
+    public ModRecipesProvider(PackOutput pOutput)
     {
         super(pOutput);
     }

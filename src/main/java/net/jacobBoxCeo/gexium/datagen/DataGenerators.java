@@ -1,6 +1,5 @@
 package net.jacobBoxCeo.gexium.datagen;
 
-import com.google.common.eventbus.Subscribe;
 import net.jacobBoxCeo.gexium.Gexium;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -23,11 +22,11 @@ public class DataGenerators
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new ModRecipesGen(packOutput));
-        generator.addProvider(event.includeServer(), ModLootTableGen.create(packOutput));
+        generator.addProvider(event.includeServer(), new ModRecipesProvider(packOutput));
+        generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
 
-        generator.addProvider(event.includeClient(), new ModBlockStateGen(packOutput, fileHelper));
-        generator.addProvider(event.includeClient(), new ModItemModelGen(packOutput, fileHelper));
+        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, fileHelper));
+        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, fileHelper));
 
         ModBlockTagGen blockTagGen = generator.addProvider(event.includeServer(),
                 new ModBlockTagGen(packOutput, lookupProvider, fileHelper));
