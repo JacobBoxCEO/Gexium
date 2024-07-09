@@ -6,7 +6,7 @@ import net.jacobBoxCeo.gexium.items.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -24,25 +24,43 @@ public class ModItemModelGen extends ItemModelProvider
     {
         for(RegistryObject<Item> item : ModItems.ITEMS.getEntries())
         {
-            if (!checkIsBlock(item))
+            if (checkIsBlock(item))
             {
-                simpleItem(item);
+                if(checkIsTool(item))
+                {
+                    toolItem(item);
+                }
+                else
+                {
+                    simpleItem(item);
+                }
             }
         }
     }
 
     private static boolean checkIsBlock(RegistryObject<Item> item)
     {
-        boolean isBlock = false;
-        for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries())
+        boolean isValid = true;
+        if (item.getKey().equals(ModBlocks.BLOCKS.getRegistryKey()))
         {
-            if (item.equals(block))
-            {
-                isBlock = true;
-                break;
-            }
+            isValid = false;
         }
-        return isBlock;
+        return isValid;
+    }
+    private static boolean checkIsTool(RegistryObject<Item> item)
+    {
+        boolean isValid = false;
+        if(item.get().canBeDepleted())
+        {
+            isValid = true;
+        }
+        return isValid;
+    }
+    private ItemModelBuilder toolItem(RegistryObject<Item> item)
+    {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(Gexium.MODID, "item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item)

@@ -1,7 +1,7 @@
 package net.jacobBoxCeo.gexium.items;
 
 import net.jacobBoxCeo.gexium.Gexium;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -16,6 +16,16 @@ public class ModItems
             () -> new Item(new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXIUM = ITEMS.register("gexium_ingot",
             () -> new Item(new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXITE_SWORD = ITEMS.register("gexite_sword",
+            () -> new SwordItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXITE_PICKAXE = ITEMS.register("gexite_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXITE_AXE = ITEMS.register("gexite_axe",
+            () -> new AxeItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXITE_SHOVEL = ITEMS.register("gexite_shovel",
+            () -> new ShovelItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXITE_HOE = ITEMS.register("gexite_hoe",
+            () -> new HoeItem(ModToolTiers.GEXITE, 4, 2, new Item.Properties().fireResistant()));
 
     public static void  register(IEventBus eventBus)
     {

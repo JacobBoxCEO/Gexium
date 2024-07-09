@@ -1,6 +1,16 @@
 {
   "item.gexium.gexite_ingot": "Gexite Ingot",
   "item.gexium.gexium_ingot": "Gexium Ingot",
+  "item.gexium.gexite_sword": "Gexite Sword",
+  "item.gexium.gexite_pickaxe": "Gexite Pickaxe",
+  "item.gexium.gexite_axe": "Gexite Axe",
+  "item.gexium.gexite_shovel": "Gexite Shovel",
+  "item.gexium.gexite_hoe": "Gexite Hoe",
+  "item.gexium.gexium_sword": "Gexium Sword",
+  "item.gexium.gexium_pickaxe": "Gexium Pickaxe",
+  "item.gexium.gexium_axe": "Gexium Axe",
+  "item.gexium.gexium_shovel": "Gexium Shovel",
+  "item.gexium.gexium_hoe": "Gexium Hoe",
 
   "block.gexium.gexite_block": "Block of Gexite",
   "block.gexium.gexium_block": "Block of Gexium",
