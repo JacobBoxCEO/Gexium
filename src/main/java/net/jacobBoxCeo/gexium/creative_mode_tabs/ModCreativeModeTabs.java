@@ -25,10 +25,6 @@ public class ModCreativeModeTabs
                         {
                             output.accept(item.get());
                         }
-                        for(RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries())
-                        {
-                            output.accept(block.get());
-                        }
                     })
                     .build());
     public static void register(IEventBus eventBus)
