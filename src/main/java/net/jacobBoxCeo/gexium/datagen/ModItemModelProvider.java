@@ -6,6 +6,7 @@ import net.jacobBoxCeo.gexium.items.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -23,7 +24,7 @@ public class ModItemModelProvider extends ItemModelProvider
     {
         for(RegistryObject<Item> item : ModItems.ITEMS.getEntries())
         {
-            if (checkIsBlock(item))
+            if (!checkIsBlock(item))
             {
                 if(checkIsTool(item))
                 {
@@ -39,12 +40,16 @@ public class ModItemModelProvider extends ItemModelProvider
 
     private static boolean checkIsBlock(RegistryObject<Item> item)
     {
-        boolean isValid = true;
-        if (item.getKey().equals(ModBlocks.BLOCKS.getRegistryKey()))
+        boolean isBlock = false;
+        for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries())
         {
-            isValid = false;
+            if(item.equals(block))
+            {
+                isBlock = true;
+                break;
+            }
         }
-        return isValid;
+        return isBlock;
     }
     private static boolean checkIsTool(RegistryObject<Item> item)
     {
