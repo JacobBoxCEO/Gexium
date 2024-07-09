@@ -1,0 +1,4 @@
+// 1.20.1	2024-07-08T20:23:36.657604338	Tags for minecraft:block mod id gexium
+e2be6b2e829199380326b08359402ac73375f372 data/forge/tags/blocks/needs_netherite_tool.json
+8d8500898296139112248e41ca2a30a6f08da8e5 data/minecraft/tags/blocks/mineable/pickaxe.json
+4297101f3681bf22e2f654d19aab4913d36e9997 data/minecraft/tags/blocks/needs_iron_tool.json
