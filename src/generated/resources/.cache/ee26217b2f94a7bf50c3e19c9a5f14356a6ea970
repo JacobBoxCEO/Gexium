@@ -1,10 +1,7 @@
-// 1.20.1	2024-07-08T20:23:36.653800187	Block States: gexium
+// 1.20.1	2024-07-16T18:13:11.125720318	Block States: gexium
 d8712c26fc9662dbbb489dc5a66e8f055965d4cb assets/gexium/blockstates/evil_skeleton_block.json
-5d2f81e699376cb7d5cac1b2ebb50c6afacfc9ac assets/gexium/blockstates/gexite_block.json
 fe32bd578a4364c42b29f444a206fbf5eb55e8da assets/gexium/blockstates/gexium_block.json
 457910e104761e6b02344954166c5e352803c5e8 assets/gexium/models/block/evil_skeleton_block.json
-cbbfd7addda7aa98e658a9966b4a89fae9345c63 assets/gexium/models/block/gexite_block.json
 8f4eded81e4b1a88e85fd2b74bfbad991e6e4786 assets/gexium/models/block/gexium_block.json
 46914e28b3b9e53bb356ac012762468069fcd0d0 assets/gexium/models/item/evil_skeleton_block.json
-b476ebe206d191ff8feae8158d39d4d1b091bc1a assets/gexium/models/item/gexite_block.json
 6830707674949c87843747fb8ecf58e1e4fa0407 assets/gexium/models/item/gexium_block.json

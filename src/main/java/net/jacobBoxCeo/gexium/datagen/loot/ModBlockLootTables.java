@@ -20,7 +20,6 @@ public class ModBlockLootTables extends BlockLootSubProvider
     @Override
     protected void generate()
     {
-        this.dropSelf(ModBlocks.GEXITE_BLOCK.get());
         this.dropSelf(ModBlocks.GEXIUM_BLOCK.get());
         this.dropSelf(ModBlocks.BAD_TO_THE_BLOCK.get());
     }

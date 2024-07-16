@@ -22,7 +22,6 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer)
     {
-        packingRecipe(false, RecipeCategory.MISC, ModBlocks.GEXITE_BLOCK, ModItems.GEXITE, consumer);
         packingRecipe(false, RecipeCategory.MISC, ModBlocks.GEXIUM_BLOCK, ModItems.GEXIUM, consumer);
     }
     static private void packingRecipe(Boolean isTwoByTwo, RecipeCategory category, RegistryObject<Block> block, RegistryObject<Item> item, Consumer consumer)

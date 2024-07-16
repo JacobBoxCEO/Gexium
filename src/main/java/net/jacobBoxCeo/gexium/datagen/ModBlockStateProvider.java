@@ -18,7 +18,6 @@ public class ModBlockStateProvider extends BlockStateProvider
     @Override
     protected void registerStatesAndModels()
     {
-        blockWithItem(ModBlocks.GEXITE_BLOCK);
         blockWithItem(ModBlocks.GEXIUM_BLOCK);
         blockWithItem(ModBlocks.BAD_TO_THE_BLOCK);
     }
