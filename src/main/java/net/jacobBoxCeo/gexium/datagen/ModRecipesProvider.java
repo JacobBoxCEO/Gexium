@@ -22,38 +22,20 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer)
     {
-        packingRecipe(false, RecipeCategory.MISC, ModBlocks.GEXIUM_BLOCK, ModItems.GEXIUM, consumer);
+        packingRecipe(ModBlocks.GEXIUM_BLOCK, ModItems.GEXIUM, consumer);
     }
-    static private void packingRecipe(Boolean isTwoByTwo, RecipeCategory category, RegistryObject<Block> block, RegistryObject<Item> item, Consumer consumer)
+    static private void packingRecipe(RegistryObject<Block> block, RegistryObject<Item> item, Consumer consumer)
     {
-        if(isTwoByTwo == false)
-        {
-            ShapedRecipeBuilder.shaped(category, block.get())
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, block.get())
                     .pattern("###")
                     .pattern("###")
                     .pattern("###")
                     .define('#', item.get())
                     .unlockedBy(getHasName(item.get()), has(item.get()))
                     .save(consumer);
-            ShapelessRecipeBuilder.shapeless(category, item.get(), 9)
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, item.get(), 9)
                     .requires(block.get())
                     .unlockedBy(getHasName(block.get()), has(block.get()))
                     .save(consumer);
-        }
-        else
-        {
-            ShapedRecipeBuilder.shaped(category, block.get())
-                    .pattern("## ")
-                    .pattern("## ")
-                    .pattern("   ")
-                    .define('#', item.get())
-                    .unlockedBy(getHasName(item.get()), has(item.get()))
-                    .save(consumer);
-            ShapelessRecipeBuilder.shapeless(category, item.get(), 4)
-                    .requires(block.get())
-                    .unlockedBy(getHasName(block.get()), has(block.get()))
-                    .save(consumer);
-
-        }
     }
 }
