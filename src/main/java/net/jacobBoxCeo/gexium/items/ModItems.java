@@ -24,6 +24,8 @@ public class ModItems
             () -> new ShovelItem(ModToolTiers.GEXIUM, 2.5f, -3, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXIUM_HOE = ITEMS.register("gexium_hoe",
             () -> new HoeItem(ModToolTiers.GEXIUM, -6, 0, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> RITUAL_DAGGER = ITEMS.register("ritual_dagger",
+            () -> new RitualDaggerItem(new Item.Properties()));
 
     public static void  register(IEventBus eventBus)
     {
