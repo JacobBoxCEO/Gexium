@@ -47,7 +47,9 @@ public class RitualDaggerItem extends SwordItem
         CompoundTag nbtData = new CompoundTag();
         if (pTarget.getHealth() <= 0f)
         {
-            nbtData.putInt("gexium.kill_count", pStack.getTag().getInt("gexium.kill_count") + targetEval(pTarget));
+            int targetValue = targetEval(pTarget);
+            int killCount = pStack.getTag().getInt("gexium.kill_count");
+            nbtData.putInt("gexium.kill_count", Math.min((killCount + targetValue), 100));
             pStack.setTag(nbtData);
         }
         return true;
@@ -63,12 +65,11 @@ public class RitualDaggerItem extends SwordItem
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        if (pStack.getTag().getInt("gexium.kill_count") > 0)
-        {
-            int killCount = pStack.getTag().getInt("gexium.kill_count");
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced)
+    {
+        int killCount = pStack.getTag().getInt("gexium.kill_count");
+        if (killCount > 0)
             pTooltipComponents.add(Component.literal((killCount + "%")));
-        }
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }
