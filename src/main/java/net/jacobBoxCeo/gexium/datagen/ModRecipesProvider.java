@@ -45,7 +45,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
             ShapedRecipeBuilder.shaped(category, block.get())
                     .pattern("## ")
                     .pattern("## ")
-                    .pattern("## ")
+                    .pattern("   ")
                     .define('#', item.get())
                     .unlockedBy(getHasName(item.get()), has(item.get()))
                     .save(consumer);
