@@ -30,8 +30,10 @@ public class RitualDaggerItem extends SwordItem
             return 10;
         else if (target.getMaxHealth() > 30)
             return 5;
-        else
+        else if (target.getMaxHealth() > 10)
             return 1;
+        else
+            return 0;
     }
 
     public int getMaxDamage(ItemStack stack)
@@ -65,7 +67,7 @@ public class RitualDaggerItem extends SwordItem
         if (pStack.getTag().getInt("gexium.kill_count") > 0)
         {
             int killCount = pStack.getTag().getInt("gexium.kill_count");
-            pTooltipComponents.add(Component.literal((Integer.toString(killCount) + "%")));
+            pTooltipComponents.add(Component.literal((killCount + "%")));
         }
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
