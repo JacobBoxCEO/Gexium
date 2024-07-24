@@ -25,9 +25,9 @@ public class RitualDaggerItem extends SwordItem
         if (target instanceof Player | target.getMaxHealth() > 200)
             return 100;
         else if (target.getMaxHealth() > 100)
-            return 25;
+            return 50;
         else if (target.getMaxHealth() > 50)
-            return 10;
+            return 15;
         else if (target.getMaxHealth() > 30)
             return 5;
         else if (target.getMaxHealth() > 10)
