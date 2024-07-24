@@ -58,7 +58,7 @@ public class RitualDaggerItem extends SwordItem
     @Override
     public boolean isFoil(ItemStack pStack)
     {
-        if (pStack.getTag().getInt("gexium.kill_count") >= 100)
+        if (pStack.getTag().getInt("gexium.kill_count") == 100)
             return pStack.hasTag();
         else
             return false;
