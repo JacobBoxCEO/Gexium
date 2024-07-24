@@ -1,5 +1,7 @@
-// 1.20.1	2024-07-16T18:13:11.128149556	Recipes
+// 1.20.1	2024-07-24T03:11:05.992714438	Recipes
+24545ceb4dca86bbc95d064f339a08daaabdcbef data/gexium/advancements/recipes/combat/ritual_dagger.json
 8c9dea412366419d19b916c5d4f519ea361be470 data/gexium/advancements/recipes/misc/gexium_block.json
 cd52f644b69cb5b3e9ebe55805ac409c25b816ff data/gexium/advancements/recipes/misc/gexium_ingot.json
 16d2ebab7db63cda311b8971ebf76641dfe043bd data/gexium/recipes/gexium_block.json
 a7591cf58cfa7d22d42797531aaeaf62c5861983 data/gexium/recipes/gexium_ingot.json
+a3af8030a2fe6c7956e1456057eb23cc018506f4 data/gexium/recipes/ritual_dagger.json

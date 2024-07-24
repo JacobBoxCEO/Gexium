@@ -1,7 +1,8 @@
-// 1.20.1	2024-07-16T18:13:11.127513881	Item Models: gexium
+// 1.20.1	2024-07-24T03:11:05.990754803	Item Models: gexium
 38cde865bcb9cf25cedc40fa50484ad923dc28f0 assets/gexium/models/item/gexium_axe.json
 47c4d096edac33cb0af3a7da669aa9a3ee0d34fc assets/gexium/models/item/gexium_hoe.json
 889f81001084063523e39a9f23bcd9bcb3e742ad assets/gexium/models/item/gexium_ingot.json
 7fb92041f05b986671daa04be2203f85e2f85ea5 assets/gexium/models/item/gexium_pickaxe.json
 f79b13c7b194fed6248ffb6b1048d44b6cc57e8b assets/gexium/models/item/gexium_shovel.json
 bd37d290c7211cc71864c85b5c9458aa6b3e138a assets/gexium/models/item/gexium_sword.json
+ce795a8ca9279a75d16dcff0fef20c7f6c053374 assets/gexium/models/item/ritual_dagger.json
