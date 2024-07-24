@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "g": {
+      "item": "gexium:gexium_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "g  ",
+    "s  ",
+    "   "
+  ],
+  "result": {
+    "item": "gexium:ritual_dagger"
+  },
+  "show_notification": true
+}

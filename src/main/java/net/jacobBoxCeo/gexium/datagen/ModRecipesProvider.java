@@ -5,6 +5,7 @@ import net.jacobBoxCeo.gexium.items.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.RegistryObject;
@@ -23,6 +24,15 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
     protected void buildRecipes(Consumer<FinishedRecipe> consumer)
     {
         packingRecipe(ModBlocks.GEXIUM_BLOCK, ModItems.GEXIUM, consumer);
+        //ritual dagger recipe
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.RITUAL_DAGGER.get())
+                .pattern("g  ")
+                .pattern("s  ")
+                .pattern("   ")
+                .define('g', ModItems.GEXIUM.get())
+                .define('s', Items.STICK)
+                .unlockedBy(getHasName(ModItems.GEXIUM.get()), has(ModItems.GEXIUM.get()))
+                .save(consumer);
     }
     static private void packingRecipe(RegistryObject<Block> block, RegistryObject<Item> item, Consumer consumer)
     {
