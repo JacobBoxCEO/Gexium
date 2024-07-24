@@ -69,7 +69,7 @@ public class RitualDaggerItem extends SwordItem
     {
         int killCount = pStack.getTag().getInt("gexium.kill_count");
         if (killCount > 0)
-            pTooltipComponents.add(Component.literal((killCount + "%")));
+            pTooltipComponents.add(Component.literal((killCount + "% charged")));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }
