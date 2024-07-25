@@ -23,7 +23,12 @@ public class BadToTheBoneBlock extends Block
             BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit)
     {
         pLevel.playSound(pPlayer,pPos, ModSounds.BAD_TO_THE_BONE.get(), SoundSource.BLOCKS);
-        pLevel.explode(pPlayer, pPos.getX(), pPos.getY(), pPos.getZ(), 100f, Level.ExplosionInteraction.NONE);
+        pLevel.explode(null,
+                pPos.getX(),
+                pPos.getY(),
+                pPos.getZ(),
+                20f,
+                Level.ExplosionInteraction.TNT);
         return InteractionResult.SUCCESS;
     }
 }
