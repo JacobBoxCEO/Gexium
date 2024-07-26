@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gexium:item/gexium_upgrade_smithing_template"
+  }
+}

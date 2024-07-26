@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "gexium:gexium_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_hoe"
+  },
+  "result": {
+    "item": "gexium:gexium_hoe"
+  },
+  "template": {
+    "item": "gexium:gexium_upgrade_smithing_template"
+  }
+}

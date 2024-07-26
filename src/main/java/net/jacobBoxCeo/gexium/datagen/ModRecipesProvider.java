@@ -6,6 +6,8 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.RegistryObject;
@@ -24,6 +26,11 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
     protected void buildRecipes(Consumer<FinishedRecipe> consumer)
     {
         packingRecipe(ModBlocks.GEXIUM_BLOCK, ModItems.GEXIUM, consumer);
+        gexiumSmithing(consumer, Items.NETHERITE_AXE, ModItems.GEXIUM_AXE.get());
+        gexiumSmithing(consumer, Items.NETHERITE_PICKAXE, ModItems.GEXIUM_PICKAXE.get());
+        gexiumSmithing(consumer, Items.NETHERITE_SWORD, ModItems.GEXIUM_SWORD.get());
+        gexiumSmithing(consumer, Items.NETHERITE_SHOVEL, ModItems.GEXIUM_SHOVEL.get());
+        gexiumSmithing(consumer, Items.NETHERITE_HOE, ModItems.GEXIUM_HOE.get());
         //ritual dagger recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.RITUAL_DAGGER.get())
                 .pattern("g  ")
@@ -34,7 +41,9 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .unlockedBy(getHasName(ModItems.GEXIUM.get()), has(ModItems.GEXIUM.get()))
                 .save(consumer);
     }
-    static private void packingRecipe(RegistryObject<Block> block, RegistryObject<Item> item, Consumer consumer)
+
+
+    private static void packingRecipe(RegistryObject<Block> block, RegistryObject<Item> item, Consumer consumer)
     {
             ShapedRecipeBuilder.shaped(RecipeCategory.MISC, block.get())
                     .pattern("###")
@@ -47,5 +56,18 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                     .requires(block.get())
                     .unlockedBy(getHasName(block.get()), has(block.get()))
                     .save(consumer);
+    }
+
+    private static void gexiumSmithing(Consumer<FinishedRecipe> pFinishedRecipeConsumer, Item pIngredientItem, Item pResultItem)
+    {
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(new ItemLike[]{ModItems.GEXIUM_UPGRADE_TEMPLATE.get()}),
+                Ingredient.of(new ItemLike[]{pIngredientItem}),
+                Ingredient.of(new ItemLike[]{ModItems.GEXIUM.get()}),
+                        RecipeCategory.MISC,
+                pResultItem)
+                .unlocks("has_gexium_ingot",
+                        has((ItemLike)ModItems.GEXIUM.get()))
+                .save(pFinishedRecipeConsumer,
+                        getItemName(pResultItem) + "_smithing");
     }
 }
