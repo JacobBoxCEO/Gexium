@@ -11,18 +11,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class BadToTheBoneBlock extends Block
-{
-    public BadToTheBoneBlock(Properties pProperties)
-    {
+public class BadToTheBoneBlock extends Block {
+    public BadToTheBoneBlock(Properties pProperties) {
         super(pProperties);
     }
 
     @Override
     public InteractionResult use(
-            BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit)
-    {
-        pLevel.playSound(pPlayer,pPos, ModSounds.BAD_TO_THE_BONE.get(), SoundSource.BLOCKS);
+            BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        pLevel.playSound(pPlayer, pPos, ModSounds.BAD_TO_THE_BONE.get(), SoundSource.BLOCKS);
         pLevel.explode(null,
                 pPos.getX(),
                 pPos.getY(),
