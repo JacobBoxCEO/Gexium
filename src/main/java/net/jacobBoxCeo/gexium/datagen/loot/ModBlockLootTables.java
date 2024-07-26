@@ -8,23 +8,19 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
 
-public class ModBlockLootTables extends BlockLootSubProvider
-{
-    public ModBlockLootTables()
-    {
+public class ModBlockLootTables extends BlockLootSubProvider {
+    public ModBlockLootTables() {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
 
     @Override
-    protected void generate()
-    {
+    protected void generate() {
         this.dropSelf(ModBlocks.GEXIUM_BLOCK.get());
         this.dropSelf(ModBlocks.BAD_TO_THE_BLOCK.get());
     }
 
     @Override
-    protected Iterable<Block> getKnownBlocks()
-    {
+    protected Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }

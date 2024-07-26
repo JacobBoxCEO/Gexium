@@ -8,8 +8,7 @@ import net.minecraft.world.item.SmithingTemplateItem;
 
 import java.util.List;
 
-public class ModUpgradeTemplateItem extends SmithingTemplateItem
-{
+public class ModUpgradeTemplateItem extends SmithingTemplateItem {
     private static final Component GEXIUM_UPGRADE_APPLIES_TO;
     private static final Component GEXIUM_UPGRADE_INGREDIENTS;
     private static final Component GEXIUM_UPGRADE;
@@ -26,28 +25,7 @@ public class ModUpgradeTemplateItem extends SmithingTemplateItem
     private static final ResourceLocation EMPTY_SLOT_PICKAXE;
     private static final ResourceLocation EMPTY_SLOT_INGOT;
 
-    public ModUpgradeTemplateItem()
-    {
-        super(GEXIUM_UPGRADE_APPLIES_TO,
-                GEXIUM_UPGRADE_INGREDIENTS,
-                GEXIUM_UPGRADE,
-                GEXIUM_UPGRADE_BASE_SLOT_DESCRIPTION,
-                GEXIUM_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createGexiumUpgradeIconList(),
-                createGexiumUpgradeMaterialList());
-    }
-
-    private static List<ResourceLocation> createGexiumUpgradeIconList()
-    {
-        return List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_SWORD, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_AXE, EMPTY_SLOT_BOOTS, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL);
-    }
-
-    private static List<ResourceLocation> createGexiumUpgradeMaterialList() {
-        return List.of(EMPTY_SLOT_INGOT);
-    }
-
-    static
-    {
+    static {
         GEXIUM_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item",
                 new ResourceLocation("smithing_template.gexium_upgrade.applies_to"))).withStyle(ChatFormatting.BLUE);
         GEXIUM_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item",
@@ -69,5 +47,23 @@ public class ModUpgradeTemplateItem extends SmithingTemplateItem
         EMPTY_SLOT_PICKAXE = new ResourceLocation("item/empty_slot_pickaxe");
         EMPTY_SLOT_INGOT = new ResourceLocation("item/empty_slot_ingot");
 
+    }
+
+    public ModUpgradeTemplateItem() {
+        super(GEXIUM_UPGRADE_APPLIES_TO,
+                GEXIUM_UPGRADE_INGREDIENTS,
+                GEXIUM_UPGRADE,
+                GEXIUM_UPGRADE_BASE_SLOT_DESCRIPTION,
+                GEXIUM_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+                createGexiumUpgradeIconList(),
+                createGexiumUpgradeMaterialList());
+    }
+
+    private static List<ResourceLocation> createGexiumUpgradeIconList() {
+        return List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_SWORD, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_AXE, EMPTY_SLOT_BOOTS, EMPTY_SLOT_HOE, EMPTY_SLOT_SHOVEL);
+    }
+
+    private static List<ResourceLocation> createGexiumUpgradeMaterialList() {
+        return List.of(EMPTY_SLOT_INGOT);
     }
 }

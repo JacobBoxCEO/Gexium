@@ -10,8 +10,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModItemTagGen extends ItemTagsProvider
-{
+public class ModItemTagGen extends ItemTagsProvider {
 
     public ModItemTagGen(PackOutput p_275343_, CompletableFuture<HolderLookup.Provider> p_275729_,
                          CompletableFuture<TagLookup<Block>> p_275322_, @Nullable ExistingFileHelper existingFileHelper) {
@@ -19,8 +18,7 @@ public class ModItemTagGen extends ItemTagsProvider
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider)
-    {
+    protected void addTags(HolderLookup.Provider provider) {
 
     }
 }

@@ -12,10 +12,9 @@ import net.minecraftforge.common.TierSortingRegistry;
 
 import java.util.List;
 
-public class ModToolTiers
-{
+public class ModToolTiers {
     public static final Tier GEXIUM = TierSortingRegistry.registerTier(
-            new ForgeTier(5,8192,14f,7f,30,
+            new ForgeTier(5, 8192, 14f, 7f, 30,
                     Tags.Blocks.NEEDS_NETHERITE_TOOL, () -> Ingredient.of(ModItems.GEXIUM.get())),
             new ResourceLocation(Gexium.MODID, "gexium_ingot"), List.of(Tiers.NETHERITE), List.of()
     );

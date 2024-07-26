@@ -12,65 +12,52 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModItemModelProvider extends ItemModelProvider
-{
-    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper)
-    {
+public class ModItemModelProvider extends ItemModelProvider {
+    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, Gexium.MODID, existingFileHelper);
     }
 
-    @Override
-    protected void registerModels()
-    {
-        for(RegistryObject<Item> item : ModItems.ITEMS.getEntries())
-        {
-            if (!checkIsBlock(item))
-            {
-                if(checkIsTool(item))
-                {
-                    toolItem(item);
-                }
-                else
-                {
-                    simpleItem(item);
-                }
-            }
-        }
-    }
-
-    private static boolean checkIsBlock(RegistryObject<Item> item)
-    {
+    private static boolean checkIsBlock(RegistryObject<Item> item) {
         boolean isBlock = false;
-        for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries())
-        {
-            if(item.equals(block))
-            {
+        for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries()) {
+            if (item.equals(block)) {
                 isBlock = true;
                 break;
             }
         }
         return isBlock;
     }
-    private static boolean checkIsTool(RegistryObject<Item> item)
-    {
+
+    private static boolean checkIsTool(RegistryObject<Item> item) {
         boolean isValid = false;
-        if(item.get().canBeDepleted())
-        {
+        if (item.get().canBeDepleted()) {
             isValid = true;
         }
         return isValid;
     }
-    private ItemModelBuilder toolItem(RegistryObject<Item> item)
-    {
+
+    @Override
+    protected void registerModels() {
+        for (RegistryObject<Item> item : ModItems.ITEMS.getEntries()) {
+            if (!checkIsBlock(item)) {
+                if (checkIsTool(item)) {
+                    toolItem(item);
+                } else {
+                    simpleItem(item);
+                }
+            }
+        }
+    }
+
+    private ItemModelBuilder toolItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(Gexium.MODID, "item/" + item.getId().getPath()));
     }
 
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item)
-    {
+    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(Gexium.MODID,"item/" + item.getId().getPath()));
+                new ResourceLocation(Gexium.MODID, "item/" + item.getId().getPath()));
     }
 }
