@@ -1,6 +1,6 @@
 package net.jacobBoxCeo.gexium.blocks;
 
-import net.jacobBoxCeo.gexium.sounds.ModSounds;
+import net.jacobBoxCeo.gexium.init.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;

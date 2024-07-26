@@ -1,7 +1,7 @@
 package net.jacobBoxCeo.gexium.datagen;
 
-import net.jacobBoxCeo.gexium.blocks.ModBlocks;
-import net.jacobBoxCeo.gexium.items.ModItems;
+import net.jacobBoxCeo.gexium.init.ModBlocks;
+import net.jacobBoxCeo.gexium.init.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;

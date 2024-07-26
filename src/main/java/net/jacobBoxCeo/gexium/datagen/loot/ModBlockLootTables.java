@@ -1,10 +1,8 @@
 package net.jacobBoxCeo.gexium.datagen.loot;
 
-import net.jacobBoxCeo.gexium.blocks.ModBlocks;
+import net.jacobBoxCeo.gexium.init.ModBlocks;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 

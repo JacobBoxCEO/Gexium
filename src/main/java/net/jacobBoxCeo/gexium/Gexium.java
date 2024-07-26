@@ -1,10 +1,10 @@
 package net.jacobBoxCeo.gexium;
 
 import com.mojang.logging.LogUtils;
-import net.jacobBoxCeo.gexium.blocks.ModBlocks;
-import net.jacobBoxCeo.gexium.creative_mode_tabs.ModCreativeModeTabs;
-import net.jacobBoxCeo.gexium.items.ModItems;
-import net.jacobBoxCeo.gexium.sounds.ModSounds;
+import net.jacobBoxCeo.gexium.init.ModBlocks;
+import net.jacobBoxCeo.gexium.init.ModCreativeModeTabs;
+import net.jacobBoxCeo.gexium.init.ModItems;
+import net.jacobBoxCeo.gexium.init.ModSounds;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;

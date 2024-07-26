@@ -1,6 +1,7 @@
 package net.jacobBoxCeo.gexium.items;
 
 import net.jacobBoxCeo.gexium.Gexium;
+import net.jacobBoxCeo.gexium.init.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;

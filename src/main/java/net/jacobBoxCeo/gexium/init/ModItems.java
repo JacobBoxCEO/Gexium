@@ -1,6 +1,8 @@
-package net.jacobBoxCeo.gexium.items;
+package net.jacobBoxCeo.gexium.init;
 
 import net.jacobBoxCeo.gexium.Gexium;
+import net.jacobBoxCeo.gexium.items.ModToolTiers;
+import net.jacobBoxCeo.gexium.items.RitualDaggerItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

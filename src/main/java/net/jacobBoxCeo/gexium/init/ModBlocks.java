@@ -1,7 +1,7 @@
-package net.jacobBoxCeo.gexium.blocks;
+package net.jacobBoxCeo.gexium.init;
 
 import net.jacobBoxCeo.gexium.Gexium;
-import net.jacobBoxCeo.gexium.items.ModItems;
+import net.jacobBoxCeo.gexium.blocks.BadToTheBoneBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

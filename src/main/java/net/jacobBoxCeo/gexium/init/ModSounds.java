@@ -1,4 +1,4 @@
-package net.jacobBoxCeo.gexium.sounds;
+package net.jacobBoxCeo.gexium.init;
 
 import net.jacobBoxCeo.gexium.Gexium;
 import net.minecraft.resources.ResourceLocation;
