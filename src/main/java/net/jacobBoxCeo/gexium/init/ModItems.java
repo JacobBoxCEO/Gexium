@@ -2,6 +2,7 @@ package net.jacobBoxCeo.gexium.init;
 
 import net.jacobBoxCeo.gexium.Gexium;
 import net.jacobBoxCeo.gexium.items.ModToolTiers;
+import net.jacobBoxCeo.gexium.items.ModUpgradeTemplateItem;
 import net.jacobBoxCeo.gexium.items.RitualDaggerItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,6 +29,8 @@ public class ModItems
             () -> new HoeItem(ModToolTiers.GEXIUM, -6, 0, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> RITUAL_DAGGER = ITEMS.register("ritual_dagger",
             () -> new RitualDaggerItem(new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> GEXIUM_UPGRADE_TEMPLATE = ITEMS.register("gexium_upgrade_smithing_template",
+            ModUpgradeTemplateItem::new);
 
     public static void  register(IEventBus eventBus)
     {
