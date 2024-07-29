@@ -34,10 +34,6 @@ public class RitualDaggerItem extends SwordItem {
             return 0;
     }
 
-    public int getMaxDamage(ItemStack stack) {
-        return 300;
-    }
-
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         CompoundTag nbtData = new CompoundTag();
