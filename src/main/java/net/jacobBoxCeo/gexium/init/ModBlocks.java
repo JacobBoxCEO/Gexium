@@ -20,7 +20,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> GEXIUM_BLOCK = registerBlock("gexium_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
     public static final RegistryObject<Block> BAD_TO_THE_BLOCK = registerBlock("evil_skeleton_block",
-            () -> new BadToTheBoneBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK)));
+            () -> new BadToTheBoneBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).explosionResistance(1200)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
