@@ -5,7 +5,10 @@ import net.jacobBoxCeo.gexium.init.ModBlocks;
 import net.jacobBoxCeo.gexium.init.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -18,33 +21,26 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private static boolean checkIsBlock(RegistryObject<Item> item) {
-        boolean isBlock = false;
-        for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries()) {
-            if (item.equals(block)) {
-                isBlock = true;
-                break;
-            }
-        }
-        return isBlock;
+        for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries())
+            if (item.equals(block)) return true;
+        return false;
     }
 
     private static boolean checkIsTool(RegistryObject<Item> item) {
-        boolean isValid = false;
-        if (item.get().canBeDepleted()) {
-            isValid = true;
+        if (item.get().canBeDepleted() && new ItemStack(item.get()).getEquipmentSlot() == null) {
+            return true;
         }
-        return isValid;
+        return false;
     }
 
     @Override
     protected void registerModels() {
         for (RegistryObject<Item> item : ModItems.ITEMS.getEntries()) {
             if (!checkIsBlock(item)) {
-                if (checkIsTool(item)) {
+                if (checkIsTool(item))
                     toolItem(item);
-                } else {
+                else
                     simpleItem(item);
-                }
             }
         }
     }
