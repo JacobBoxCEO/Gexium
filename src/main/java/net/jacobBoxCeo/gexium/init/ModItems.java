@@ -29,7 +29,7 @@ public class ModItems {
     public static final RegistryObject<Item> RITUAL_DAGGER = ITEMS.register("ritual_dagger",
             () -> new RitualDaggerItem(new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXIUM_UPGRADE_TEMPLATE = ITEMS.register("gexium_upgrade_smithing_template",
-            ModUpgradeTemplateItem::new);
+            ModUpgradeTemplateItem::createGexiumUpgrade);
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -46,11 +46,14 @@ public class ModUpgradeTemplateItem extends SmithingTemplateItem {
         EMPTY_SLOT_SHOVEL = new ResourceLocation("item/empty_slot_shovel");
         EMPTY_SLOT_PICKAXE = new ResourceLocation("item/empty_slot_pickaxe");
         EMPTY_SLOT_INGOT = new ResourceLocation("item/empty_slot_ingot");
-
     }
 
-    public ModUpgradeTemplateItem() {
-        super(GEXIUM_UPGRADE_APPLIES_TO,
+    public ModUpgradeTemplateItem(Component pAppliesTo, Component pIngredients, Component pUpdradeDescription, Component pBaseSlotDescription, Component pAdditionsSlotDescription, List<ResourceLocation> pBaseSlotEmptyIcons, List<ResourceLocation> pAdditonalSlotEmptyIcons) {
+        super(pAppliesTo, pIngredients, pUpdradeDescription, pBaseSlotDescription, pAdditionsSlotDescription, pBaseSlotEmptyIcons, pAdditonalSlotEmptyIcons);
+    }
+
+    public static ModUpgradeTemplateItem createGexiumUpgrade() {
+        return new ModUpgradeTemplateItem(GEXIUM_UPGRADE_APPLIES_TO,
                 GEXIUM_UPGRADE_INGREDIENTS,
                 GEXIUM_UPGRADE,
                 GEXIUM_UPGRADE_BASE_SLOT_DESCRIPTION,
