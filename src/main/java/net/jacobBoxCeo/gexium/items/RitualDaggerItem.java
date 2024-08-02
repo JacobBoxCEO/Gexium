@@ -25,7 +25,7 @@ public class RitualDaggerItem extends SwordItem {
         else if (target.getMaxHealth() > 100)
             return 50;
         else if (target.getMaxHealth() > 50)
-            return 15;
+            return 20;
         else if (target.getMaxHealth() > 30)
             return 5;
         else if (target.getMaxHealth() > 10)
@@ -50,6 +50,7 @@ public class RitualDaggerItem extends SwordItem {
 
     @Override
     public boolean isFoil(ItemStack pStack) {
+        assert pStack.getTag() != null;
         if (pStack.getTag().getInt("gexium.kill_count") == 100)
             return pStack.hasTag();
         else
@@ -68,6 +69,7 @@ public class RitualDaggerItem extends SwordItem {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        assert pStack.getTag() != null;
         int killCount = pStack.getTag().getInt("gexium.kill_count");
         if (killCount > 0)
             pTooltipComponents.add(Component.literal((killCount + "% charged")));
