@@ -54,6 +54,10 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         gexiumSmithing(consumer, Items.NETHERITE_SWORD, ModItems.GEXIUM_SWORD.get());
         gexiumSmithing(consumer, Items.NETHERITE_SHOVEL, ModItems.GEXIUM_SHOVEL.get());
         gexiumSmithing(consumer, Items.NETHERITE_HOE, ModItems.GEXIUM_HOE.get());
+        gexiumSmithing(consumer, Items.NETHERITE_HELMET, ModItems.GEXIUM_HELMET.get());
+        gexiumSmithing(consumer, Items.NETHERITE_CHESTPLATE, ModItems.GEXIUM_CHESTPLATE.get());
+        gexiumSmithing(consumer, Items.NETHERITE_LEGGINGS, ModItems.GEXIUM_LEGGINGS.get());
+        gexiumSmithing(consumer, Items.NETHERITE_BOOTS, ModItems.GEXIUM_BOOTS.get());
         //ritual dagger recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.RITUAL_DAGGER.get())
                 .pattern("g  ")
