@@ -53,13 +53,7 @@ public class ModUpgradeTemplateItem extends SmithingTemplateItem {
     }
 
     public static ModUpgradeTemplateItem createGexiumUpgrade() {
-        return new ModUpgradeTemplateItem(GEXIUM_UPGRADE_APPLIES_TO,
-                GEXIUM_UPGRADE_INGREDIENTS,
-                GEXIUM_UPGRADE,
-                GEXIUM_UPGRADE_BASE_SLOT_DESCRIPTION,
-                GEXIUM_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createGexiumUpgradeIconList(),
-                createGexiumUpgradeMaterialList());
+        return new ModUpgradeTemplateItem(GEXIUM_UPGRADE_APPLIES_TO, GEXIUM_UPGRADE_INGREDIENTS, GEXIUM_UPGRADE, GEXIUM_UPGRADE_BASE_SLOT_DESCRIPTION, GEXIUM_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, createGexiumUpgradeIconList(), createGexiumUpgradeMaterialList());
     }
 
     private static List<ResourceLocation> createGexiumUpgradeIconList() {
