@@ -45,28 +45,15 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private static boolean checkIsTool(RegistryObject<Item> item) {
-        if (item.get().canBeDepleted() && item.get().getClass() != ArmorItem.class) return true;
+        if (item.get().canBeDepleted())
+            return true;
         return false;
     }
 
-    private static int checkType(RegistryObject<Item> item) {
-        if (item.get().canBeDepleted())
-        {
-            if (item.get() instanceof ArmorItem)
-            {
-                if (checkIsTrimmable(item))
-                {
-                    //trimmed item
-                    return 0;
-                }
-                //simple item
-                return 1;
-            }
-            //tool item
-            return 2;
-        }
-        //simple item
-        return 1;
+    private static boolean checkIsArmor(RegistryObject<Item> item) {
+        if (item.get() instanceof ArmorItem)
+            return true;
+        return false;
     }
 
     private static boolean checkIsTrimmable(RegistryObject<Item> item) {
@@ -77,14 +64,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         for (RegistryObject<Item> item : ModItems.ITEMS.getEntries()) {
             if (!checkIsBlock(item)) {
-                switch (checkType(item))
-                {
-                    case 0:
-                        trimmedArmorItem(item);
-                    case 1:
-                        simpleItem(item);
-                    case 2:
-                        toolItem(item);
+                if (checkIsTool(item)) {
+                    toolItem(item);
+                } else if (checkIsArmor(item)) {
+                    trimmedArmorItem(item);
+                } else {
+                    simpleItem(item);
                 }
             }
         }
