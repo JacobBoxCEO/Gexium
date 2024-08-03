@@ -5,7 +5,6 @@ import net.jacobBoxCeo.gexium.items.ModArmorMaterial;
 import net.jacobBoxCeo.gexium.items.ModToolTiers;
 import net.jacobBoxCeo.gexium.items.ModUpgradeTemplateItem;
 import net.jacobBoxCeo.gexium.items.RitualDaggerItem;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, Gexium.MODID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, Gexium.MOD_ID);
 
     public static final RegistryObject<Item> GEXIUM = ITEMS.register("gexium_ingot",
             () -> new Item(new Item.Properties().fireResistant()));

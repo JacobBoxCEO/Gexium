@@ -62,7 +62,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return Gexium.MODID + ":" + this.name;
+        return Gexium.MOD_ID + ":" + this.name;
     }
 
     @Override

@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Gexium.MODID);
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Gexium.MOD_ID);
     public static final RegistryObject<CreativeModeTab> SILLY_MOD_TAB = CREATIVE_MODE_TABS.register("silly_mod_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.GEXIUM.get()))
                     .title(Component.translatable("creativetab.silly_mod_tab"))
