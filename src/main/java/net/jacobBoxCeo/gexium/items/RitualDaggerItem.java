@@ -9,6 +9,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -35,10 +36,11 @@ public class RitualDaggerItem extends SwordItem {
     }
 
     @Override
-    public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+    public boolean hurtEnemy(@NotNull ItemStack pStack, LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
         CompoundTag nbtData = new CompoundTag();
         if (pTarget.getHealth() <= 0f) {
             int targetValue = targetEval(pTarget);
+            assert pStack.getTag() != null;
             int killCount = pStack.getTag().getInt("gexium.kill_count");
             if (killCount < 100) {
                 nbtData.putInt("gexium.kill_count", Math.min((killCount + targetValue), 100));
@@ -68,7 +70,7 @@ public class RitualDaggerItem extends SwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         assert pStack.getTag() != null;
         int killCount = pStack.getTag().getInt("gexium.kill_count");
         if (killCount > 0)
