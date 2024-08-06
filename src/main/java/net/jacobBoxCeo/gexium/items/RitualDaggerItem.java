@@ -1,8 +1,10 @@
 package net.jacobBoxCeo.gexium.items;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -21,18 +23,12 @@ public class RitualDaggerItem extends SwordItem {
     }
 
     private int targetEval(LivingEntity target) {
-        if (target instanceof Player | target.getMaxHealth() > 200)
-            return 100;
-        else if (target.getMaxHealth() > 100)
-            return 50;
-        else if (target.getMaxHealth() > 50)
-            return 20;
-        else if (target.getMaxHealth() > 30)
-            return 5;
-        else if (target.getMaxHealth() > 10)
-            return 1;
-        else
-            return 0;
+        if (target.getType().getCategory() == MobCategory.MONSTER | target instanceof Player){
+            if (target instanceof Player)
+                return 100;
+            return (int) (100 * Math.floorDiv((long) target.getMaxHealth(),200));
+        }
+        return 0;
     }
 
     @Override
@@ -53,10 +49,7 @@ public class RitualDaggerItem extends SwordItem {
     @Override
     public boolean isFoil(ItemStack pStack) {
         assert pStack.getTag() != null;
-        if (pStack.getTag().getInt("gexium.kill_count") == 100)
-            return pStack.hasTag();
-        else
-            return false;
+        return pStack.getTag().getInt("gexium.kill_count") == 100;
     }
 
     @Override
@@ -71,10 +64,14 @@ public class RitualDaggerItem extends SwordItem {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         assert pStack.getTag() != null;
         int killCount = pStack.getTag().getInt("gexium.kill_count");
-        if (killCount > 0)
-            pTooltipComponents.add(Component.literal((killCount + "% charged")));
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        if (killCount == 100) {
+            pTooltipComponents.add(Component.literal(("100/100")).withStyle(ChatFormatting.DARK_RED));
+        }
+        else if (killCount > 0) {
+            pTooltipComponents.add(Component.literal((killCount + "/100")).withStyle(ChatFormatting.GRAY));
+        }
     }
 }
