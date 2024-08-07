@@ -13,13 +13,13 @@ public class Util {
     public static String makeDescriptionId(String pType, @Nullable ResourceLocation pId) {
         return pId == null ? pType + ".unregistered_sadface" : pType + "." + Gexium.MOD_ID + "." + pId.getPath().replace('/', '.');
     }
-    public static void addLiteralComponent(@NotNull List<Component> pTooltipComponents, String inputString, ChatFormatting color) {
+    public static void literalComponent(@NotNull List<Component> pTooltipComponents, String inputString, ChatFormatting... formatting) {
         pTooltipComponents.add(Component.literal((inputString))
-                .withStyle(color));
+                .withStyle(formatting));
     }
-    public static void addTranslatableComponent(@NotNull List<Component> pTooltipComponents, String type, String location, ChatFormatting color) {
+    public static void translatableComponent(@NotNull List<Component> pTooltipComponents, String type, String location, ChatFormatting... formatting) {
         pTooltipComponents.add(Component.translatable(makeDescriptionId(type,
                         new ResourceLocation(location)))
-                .withStyle(color));
+                .withStyle(formatting));
     }
 }
