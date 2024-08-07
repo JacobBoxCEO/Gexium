@@ -1,8 +1,11 @@
 package net.jacobBoxCeo.gexium.items;
 
+import net.jacobBoxCeo.gexium.util.Util;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.player.Player;
@@ -22,11 +25,15 @@ public class RitualDaggerItem extends SwordItem {
         super(ModToolTiers.GEXIUM, -3, -2, pProperties);
     }
 
+    private int getKills(ItemStack stack) {
+        return !stack.hasTag() ? 0 : stack.getTag().getInt("gexium.killCount");
+    }
+
     private int targetEval(LivingEntity target) {
         if (target.getType().getCategory() == MobCategory.MONSTER | target instanceof Player){
             if (target instanceof Player)
                 return 100;
-            return (int) (100 * Math.floorDiv((long) target.getMaxHealth(),200));
+            return (int) Math.floor(100 * target.getMaxHealth()/200);
         }
         return 0;
     }
@@ -37,9 +44,9 @@ public class RitualDaggerItem extends SwordItem {
         if (pTarget.getHealth() <= 0f) {
             int targetValue = targetEval(pTarget);
             assert pStack.getTag() != null;
-            int killCount = pStack.getTag().getInt("gexium.kill_count");
+            int killCount = getKills(pStack);
             if (killCount < 100) {
-                nbtData.putInt("gexium.kill_count", Math.min((killCount + targetValue), 100));
+                nbtData.putInt("gexium.killCount", Math.min((killCount + targetValue), 100));
                 pStack.setTag(nbtData);
             }
         }
@@ -47,9 +54,25 @@ public class RitualDaggerItem extends SwordItem {
     }
 
     @Override
+    public boolean isBarVisible(@NotNull ItemStack pStack) {
+        return this.getKills(pStack) > 0;
+    }
+
+    @Override
+    public int getBarWidth(@NotNull ItemStack pStack) {
+        return Math.round((getKills(pStack) / 100f) * 13f);
+    }
+
+    @Override
+    public int getBarColor(@NotNull ItemStack pStack) {
+        float value = Math.max((getKills(pStack) / 100f), 0.3f);
+        return Mth.hsvToRgb(0f, 1f, value);
+    }
+
+    @Override
     public boolean isFoil(ItemStack pStack) {
         assert pStack.getTag() != null;
-        return pStack.getTag().getInt("gexium.kill_count") == 100;
+        return pStack.getTag().getInt("gexium.killCount") == 100;
     }
 
     @Override
@@ -63,15 +86,21 @@ public class RitualDaggerItem extends SwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         assert pStack.getTag() != null;
-        int killCount = pStack.getTag().getInt("gexium.kill_count");
+        int killCount = getKills(pStack);
         if (killCount == 100) {
-            pTooltipComponents.add(Component.literal(("100/100")).withStyle(ChatFormatting.DARK_RED));
+            Util.addLiteralComponent(pTooltipComponents, killCount +"/100", ChatFormatting.DARK_RED);
+            Util.addTranslatableComponent(pTooltipComponents, "item", "ritual_dagger.kill_unit", ChatFormatting.DARK_RED);
         }
         else if (killCount > 0) {
-            pTooltipComponents.add(Component.literal((killCount + "/100")).withStyle(ChatFormatting.GRAY));
+            Util.addLiteralComponent(pTooltipComponents,killCount + "/100", ChatFormatting.GRAY);
+            Util.addTranslatableComponent(pTooltipComponents, "item", "ritual_dagger.kill_unit", ChatFormatting.GRAY);
         }
     }
+
+
+
+
 }
