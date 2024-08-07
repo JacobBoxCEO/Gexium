@@ -91,17 +91,12 @@ public class RitualDaggerItem extends SwordItem {
     public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         int killCount = getKills(pStack);
-        if (killCount == 100) {
-            Util.addLiteralComponent(pTooltipComponents, killCount +"/" + getMaxKills(), ChatFormatting.DARK_RED);
-            Util.addTranslatableComponent(pTooltipComponents, "item", "ritual_dagger.kill_unit", ChatFormatting.DARK_RED);
-        }
-        else if (killCount > 0) {
-            Util.addLiteralComponent(pTooltipComponents,killCount + "/" + getMaxKills(), ChatFormatting.GRAY);
-            Util.addTranslatableComponent(pTooltipComponents, "item", "ritual_dagger.kill_unit", ChatFormatting.GRAY);
+        if (killCount == getMaxKills()) {
+            Util.literalComponent(pTooltipComponents, killCount +"/" + getMaxKills(), ChatFormatting.DARK_RED, ChatFormatting.ITALIC);
+            Util.translatableComponent(pTooltipComponents, "item", "ritual_dagger.kill_unit", ChatFormatting.DARK_RED, ChatFormatting.ITALIC);
+        } else {
+            Util.literalComponent(pTooltipComponents,killCount + "/" + getMaxKills(), ChatFormatting.GRAY, ChatFormatting.ITALIC);
+            Util.translatableComponent(pTooltipComponents, "item", "ritual_dagger.kill_unit", ChatFormatting.GRAY, ChatFormatting.ITALIC);
         }
     }
-
-
-
-
 }
