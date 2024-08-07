@@ -28,10 +28,14 @@ public class RitualDaggerItem extends SwordItem {
         return !stack.hasTag() ? 0 : stack.getTag().getInt("gexium.killCount");
     }
 
+    private int getMaxKills() {
+        return 100;
+    }
+
     private int targetEval(LivingEntity target) {
         if (target.getType().getCategory() == MobCategory.MONSTER | target instanceof Player){
             if (target instanceof Player)
-                return 100;
+                return getMaxKills();
             return (int) Math.floor(100 * target.getMaxHealth()/200);
         }
         return 0;
@@ -44,8 +48,8 @@ public class RitualDaggerItem extends SwordItem {
             int targetValue = targetEval(pTarget);
             assert pStack.getTag() != null;
             int killCount = getKills(pStack);
-            if (killCount < 100) {
-                nbtData.putInt("gexium.killCount", Math.min((killCount + targetValue), 100));
+            if (killCount < getMaxKills()) {
+                nbtData.putInt("gexium.killCount", Math.min((killCount + targetValue), getMaxKills()));
                 pStack.setTag(nbtData);
             }
         }
@@ -54,24 +58,23 @@ public class RitualDaggerItem extends SwordItem {
 
     @Override
     public boolean isBarVisible(@NotNull ItemStack pStack) {
-        return this.getKills(pStack) > 0;
+        return getKills(pStack) > 0;
     }
 
     @Override
     public int getBarWidth(@NotNull ItemStack pStack) {
-        return Math.round((getKills(pStack) / 100f) * 13f);
+        return Math.round(((float) getKills(pStack) / getMaxKills()) * 13f);
     }
 
     @Override
     public int getBarColor(@NotNull ItemStack pStack) {
-        float value = Math.max((getKills(pStack) / 100f), 0.3f);
+        float value = (float) (((float) getKills(pStack) / (getMaxKills() * 2)) + 0.5);
         return Mth.hsvToRgb(0f, 1f, value);
     }
 
     @Override
-    public boolean isFoil(ItemStack pStack) {
-        assert pStack.getTag() != null;
-        return pStack.getTag().getInt("gexium.killCount") == 100;
+    public boolean isFoil(@NotNull ItemStack pStack) {
+        return getKills(pStack) == getMaxKills();
     }
 
     @Override
@@ -87,14 +90,13 @@ public class RitualDaggerItem extends SwordItem {
     @Override
     public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
-        assert pStack.getTag() != null;
         int killCount = getKills(pStack);
         if (killCount == 100) {
-            Util.addLiteralComponent(pTooltipComponents, killCount +"/100", ChatFormatting.DARK_RED);
+            Util.addLiteralComponent(pTooltipComponents, killCount +"/" + getMaxKills(), ChatFormatting.DARK_RED);
             Util.addTranslatableComponent(pTooltipComponents, "item", "ritual_dagger.kill_unit", ChatFormatting.DARK_RED);
         }
         else if (killCount > 0) {
-            Util.addLiteralComponent(pTooltipComponents,killCount + "/100", ChatFormatting.GRAY);
+            Util.addLiteralComponent(pTooltipComponents,killCount + "/" + getMaxKills(), ChatFormatting.GRAY);
             Util.addTranslatableComponent(pTooltipComponents, "item", "ritual_dagger.kill_unit", ChatFormatting.GRAY);
         }
     }
