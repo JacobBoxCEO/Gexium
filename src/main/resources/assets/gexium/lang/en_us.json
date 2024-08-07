@@ -14,6 +14,7 @@
   "item.gexium.smithing_template.gexium_upgrade.applies_to": "Netherite Equipment",
   "item.gexium.smithing_template.gexium_upgrade.base_slot_description": "Add Netherite armor, weapon, or tool",
   "item.gexium.smithing_template.gexium_upgrade.additions_slot_description": "Add Gexium Ingot",
+  "item.gexium.ritual_dagger.kill_unit": "Soul Fragments",
 
   "upgrade.gexium.gexium_upgrade": "Gexium Upgrade",
 
