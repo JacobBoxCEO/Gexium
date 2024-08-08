@@ -45,19 +45,11 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private static boolean checkIsTool(RegistryObject<Item> item) {
-        if (item.get().canBeDepleted())
-            return true;
-        return false;
+        return item.get().canBeDepleted();
     }
 
     private static boolean checkIsArmor(RegistryObject<Item> item) {
-        if (item.get() instanceof ArmorItem)
-            return true;
-        return false;
-    }
-
-    private static boolean checkIsTrimmable(RegistryObject<Item> item) {
-        return true;
+        return item.get() instanceof ArmorItem;
     }
 
     @Override
