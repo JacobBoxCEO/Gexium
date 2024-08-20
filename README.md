@@ -1,4 +1,4 @@
 # gexium
-my first minecraft mod
-
+A mod focussed on sacrifices to the gods ig
 yippee
+yippee 2
