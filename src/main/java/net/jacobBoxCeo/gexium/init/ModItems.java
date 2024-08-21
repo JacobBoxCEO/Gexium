@@ -44,6 +44,8 @@ public class ModItems {
             () -> new RitualDaggerItem(new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> GEXIUM_UPGRADE_TEMPLATE = ITEMS.register("gexium_upgrade_smithing_template",
             ModUpgradeTemplateItem::createGexiumUpgrade);
+    public static final RegistryObject<Item> GEX_DISC = ITEMS.register("gex_music_disc",
+        () -> new RecordItem(15, ModSounds.GEX, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 137*20));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

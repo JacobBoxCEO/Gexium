@@ -14,6 +14,8 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> BAD_TO_THE_BONE = registerSoundEvents("bad_to_the_bone");
 
+    public static final RegistryObject<SoundEvent> GEX = registerSoundEvents("gex_intro_theme");
+
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Gexium.MOD_ID, name)));
     }

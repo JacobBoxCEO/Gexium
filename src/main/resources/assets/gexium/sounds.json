@@ -4,5 +4,13 @@
     "sounds": [
       "gexium:bad_to_the_bone"
     ]
+  },
+  "gex_intro_theme": {
+    "sounds": [
+      {
+        "name": "gexium:gex_intro_theme",
+        "stream": true
+      }
+    ]
   }
 }
