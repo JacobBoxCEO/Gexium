@@ -35,13 +35,13 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
     }
 
     private static void gexiumSmithing(Consumer<FinishedRecipe> pFinishedRecipeConsumer, Item pIngredientItem, Item pResultItem) {
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(new ItemLike[]{ModItems.GEXIUM_UPGRADE_TEMPLATE.get()}),
-                        Ingredient.of(new ItemLike[]{pIngredientItem}),
-                        Ingredient.of(new ItemLike[]{ModItems.GEXIUM.get()}),
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.GEXIUM_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(pIngredientItem),
+                        Ingredient.of(ModItems.GEXIUM.get()),
                         RecipeCategory.MISC,
                         pResultItem)
                 .unlocks("has_gexium_ingot",
-                        has((ItemLike) ModItems.GEXIUM.get()))
+                        has(ModItems.GEXIUM.get()))
                 .save(pFinishedRecipeConsumer,
                         getItemName(pResultItem) + "_smithing");
     }
