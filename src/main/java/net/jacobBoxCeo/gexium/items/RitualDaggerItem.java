@@ -25,7 +25,7 @@ public class RitualDaggerItem extends SwordItem {
     }
 
     private int getKills(ItemStack stack) {
-        return !stack.hasTag() ? 0 : stack.getTag().getInt("gexium.killCount");
+        return !stack.hasTag() ? 0 : stack.getTag().getInt("gexium.kill_count");
     }
 
     private int getMaxKills() {
@@ -49,7 +49,7 @@ public class RitualDaggerItem extends SwordItem {
             assert pStack.getTag() != null;
             int killCount = getKills(pStack);
             if (killCount < getMaxKills()) {
-                nbtData.putInt("gexium.killCount", Math.min((killCount + targetValue), getMaxKills()));
+                nbtData.putInt("gexium.kill_count", Math.min((killCount + targetValue), getMaxKills()));
                 pStack.setTag(nbtData);
             }
         }
