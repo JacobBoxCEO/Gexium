@@ -26,5 +26,7 @@ public class ModItemTagGen extends ItemTagsProvider {
                         ModItems.GEXIUM_CHESTPLATE.get(),
                         ModItems.GEXIUM_LEGGINGS.get(),
                         ModItems.GEXIUM_BOOTS.get());
+        this.tag(ItemTags.MUSIC_DISCS)
+                .add(ModItems.GEX_DISC.get());
     }
 }
