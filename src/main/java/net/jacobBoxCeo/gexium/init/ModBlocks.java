@@ -2,6 +2,7 @@ package net.jacobBoxCeo.gexium.init;
 
 import net.jacobBoxCeo.gexium.Gexium;
 import net.jacobBoxCeo.gexium.blocks.BadToTheBoneBlock;
+import net.jacobBoxCeo.gexium.blocks.RitualAltarBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -21,6 +22,8 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
     public static final RegistryObject<Block> BAD_TO_THE_BLOCK = registerBlock("evil_skeleton_block",
             () -> new BadToTheBoneBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).explosionResistance(1200)));
+    public static final RegistryObject<Block> RITUAL_ALTAR = registerBlock("ritual_altar",
+            () -> new RitualAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
