@@ -1,8 +1,13 @@
 package net.jacobBoxCeo.gexium.blocks.entity;
 
+import net.jacobBoxCeo.gexium.util.Util;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -32,7 +37,7 @@ public class RitualAltarBlockEntity extends BlockEntity implements MenuProvider 
     private int maxProgress = 100;
 
     public RitualAltarBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(, pPos, pBlockState);
+        super(ModBlockEntities.RITUAL_ALTAR_BE.get(), pPos, pBlockState);
         this.data = new ContainerData() {
             @Override
             public int get(int i) {
@@ -53,7 +58,7 @@ public class RitualAltarBlockEntity extends BlockEntity implements MenuProvider 
 
             @Override
             public int getCount() {
-                return 0;
+                return 2;
             }
         };
     }
@@ -78,14 +83,36 @@ public class RitualAltarBlockEntity extends BlockEntity implements MenuProvider 
         lazyItemHandler.invalidate();
     }
 
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+        Containers.dropContents(this.level, this.worldPosition, inventory);
+    }
+
     @Override
     public Component getDisplayName() {
-        return null;
+        return Component.translatable(Util.makeDescriptionId("block", new ResourceLocation("ritual_altar")));
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
         return null;
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag pTag) {
+        pTag.put("invntory", itemHandler.serializeNBT());
+        pTag.putInt("ritual_altar.progress", progress);
+        super.saveAdditional(pTag);
+    }
+
+    @Override
+    public void load(CompoundTag pTag) {
+        super.load(pTag);
+        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
+        progress = pTag.getInt("ritual_altar.progress");
     }
 }

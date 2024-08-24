@@ -1,6 +1,7 @@
 package net.jacobBoxCeo.gexium;
 
 import com.mojang.logging.LogUtils;
+import net.jacobBoxCeo.gexium.blocks.entity.ModBlockEntities;
 import net.jacobBoxCeo.gexium.init.ModBlocks;
 import net.jacobBoxCeo.gexium.init.ModCreativeModeTabs;
 import net.jacobBoxCeo.gexium.init.ModItems;
@@ -35,6 +36,8 @@ public class Gexium {
         ModBlocks.register(modEventBus);
 
         ModSounds.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
