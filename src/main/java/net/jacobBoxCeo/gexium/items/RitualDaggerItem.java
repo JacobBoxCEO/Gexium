@@ -24,12 +24,22 @@ public class RitualDaggerItem extends SwordItem {
         super(ModToolTiers.GEXIUM, -3, -2, pProperties);
     }
 
-    private int getKills(ItemStack stack) {
+    public int getKills(ItemStack stack) {
         return !stack.hasTag() ? 0 : stack.getTag().getInt("gexium.kill_count");
     }
 
-    private int getMaxKills() {
+    public int getMaxKills() {
         return 100;
+    }
+
+    public void setKills(ItemStack stack, int modifier) {
+        CompoundTag nbtData = new CompoundTag();
+        if ((getKills(stack) + modifier) >= getMaxKills()) {
+            nbtData.putInt("gexium.kill_count", getMaxKills());
+        } else {
+            nbtData.putInt("gexium.kill_count", Math.max(getKills(stack) + modifier, 0));
+        }
+        stack.setTag(nbtData);
     }
 
     private int targetEval(LivingEntity target) {
@@ -43,15 +53,9 @@ public class RitualDaggerItem extends SwordItem {
 
     @Override
     public boolean hurtEnemy(@NotNull ItemStack pStack, LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
-        CompoundTag nbtData = new CompoundTag();
         if (pTarget.getHealth() <= 0f) {
             int targetValue = targetEval(pTarget);
-            assert pStack.getTag() != null;
-            int killCount = getKills(pStack);
-            if (killCount < getMaxKills()) {
-                nbtData.putInt("gexium.kill_count", Math.min((killCount + targetValue), getMaxKills()));
-                pStack.setTag(nbtData);
-            }
+            setKills(pStack, targetValue);
         }
         return true;
     }
