@@ -1,5 +1,6 @@
 package net.jacobBoxCeo.gexium.blocks.entity;
 
+import net.jacobBoxCeo.gexium.init.ModItems;
 import net.jacobBoxCeo.gexium.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -12,9 +13,10 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -118,6 +120,33 @@ public class RitualAltarBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     public void tick(Level level, BlockPos blockPos, BlockState blockState) {
+        if(hasRecipe()) {
+            progress++;
+            setChanged(level, blockPos, blockState);
+            if(progress >= maxProgress) {
+                craftItem();
+                resetProgress();
+            }
+        } else {
+            resetProgress();
+        }
+    }
 
+    private void resetProgress() {
+        progress = 0;
+    }
+
+    private void craftItem() {
+
+    }
+
+    private boolean hasRecipe() {
+        boolean hasCraftingItem = this.itemHandler.getStackInSlot(INPUT_SLOT).getItem() == Items.NETHERITE_INGOT;
+        ItemStack result = new ItemStack(ModItems.GEXIUM.get());
+        return hasCraftingItem && canInsertIntoOutputSlot(result);
+    }
+
+    private boolean canInsertIntoOutputSlot(ItemStack result) {
+        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(result.getItem()) && this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount() <= result.getMaxStackSize();
     }
 }
