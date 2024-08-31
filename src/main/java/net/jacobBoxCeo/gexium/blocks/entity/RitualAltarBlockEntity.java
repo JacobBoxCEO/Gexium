@@ -66,6 +66,8 @@ public class RitualAltarBlockEntity extends BlockEntity implements MenuProvider 
         };
     }
 
+
+
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap) {
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
@@ -137,7 +139,10 @@ public class RitualAltarBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private void craftItem() {
-
+        ItemStack result = new ItemStack(ModItems.GEXIUM.get(), 1);
+        this.itemHandler.extractItem(INPUT_SLOT, 1, false);
+        this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
+                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
     }
 
     private boolean hasRecipe() {
