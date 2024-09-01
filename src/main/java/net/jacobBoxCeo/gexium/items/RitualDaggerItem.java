@@ -32,20 +32,30 @@ public class RitualDaggerItem extends SwordItem {
         return 100;
     }
 
-    public void setKills(ItemStack stack, int modifier) {
+    private void setKills(ItemStack stack, int newValue) {
         CompoundTag nbtData = new CompoundTag();
-        if ((getKills(stack) + modifier) >= getMaxKills()) {
-            nbtData.putInt("gexium.kill_count", getMaxKills());
+        if (newValue > 100 || 0 > newValue) {
+            nbtData.putInt("gexium.kill_count", newValue);
+            stack.setTag(nbtData);
         } else {
-            nbtData.putInt("gexium.kill_count", Math.max(getKills(stack) + modifier, 0));
+            throw new IllegalStateException("Kill Count was attempted to be set outside of bounds!");
         }
-        stack.setTag(nbtData);
+    }
+
+    public void resetKills(ItemStack stack) {
+        setKills(stack, 0);
+    }
+
+    public void increaseKills(ItemStack stack, int modifier) {
+        int value = Math.min(getKills(stack) + modifier, getMaxKills());
+        setKills(stack, value);
     }
 
     private int targetEval(LivingEntity target) {
-        if (target.getType().getCategory() == MobCategory.MONSTER | target instanceof Player){
-            if (target instanceof Player)
+        if (target.getType().getCategory() == MobCategory.MONSTER || target instanceof Player){
+            if (target instanceof Player) {
                 return getMaxKills();
+            }
             return (int) Math.floor(100 * target.getMaxHealth()/200);
         }
         return 0;
@@ -55,7 +65,7 @@ public class RitualDaggerItem extends SwordItem {
     public boolean hurtEnemy(@NotNull ItemStack pStack, LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
         if (pTarget.getHealth() <= 0f) {
             int targetValue = targetEval(pTarget);
-            setKills(pStack, targetValue);
+            increaseKills(pStack, targetValue);
         }
         return true;
     }
